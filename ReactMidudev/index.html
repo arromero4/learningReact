@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        picture{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 100px;
+
+        }
+            
+        
+        img {
+            box-shadow: 0 0 15px #999;
+            border-radius: 50%;
+            width: 100px;
+        }
+
+        img.disabled{
+            opacity: .3;
+        }
+    </style>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <title>react</title>
+</head>
+<body>
+    <h1>Women in tech</h1>
+    <div id="app">
+
+    </div>
+
+
+    <script type="text/babel">
+        const $app = document.getElementById('app');
+        const h = React.createElement
+
+        const Avatar = params => {
+            const src =`https://randomuser.me/api/portraits/women/${params.id}.jpg`
+            
+            return h('img', {src})
+        }
+
+        ReactDOM.render(
+            <div>
+            <Avatar id={10}/>
+            <Avatar id={11}/>
+            </div>,             
+            $app)
+        
+        // const Avatar = params => {
+        //     const src =`https://randomuser.me/api/portraits/women/${params.id}.jpg`
+        //     return `<picture>
+        //         <img src=${src}>
+        //         <strong>${params.name}</strong>
+        //         </picture>`
+        // }
+
+        // $app.innerHTML += Avatar({id:1, name:'Linda'});
+        // $app.innerHTML += Avatar({id:2, name:'Andrea'});
+
+        // $app.querySelectorAll('img').forEach(img=>{
+        //     img.addEventListener('click',()=>{
+        //         img.classList.toggle('disabled')
+        //     })
+        // })
+    </script>
+</body>
+</html>
