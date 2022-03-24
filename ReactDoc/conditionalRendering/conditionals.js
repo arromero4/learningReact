@@ -4,12 +4,12 @@ class LoginControl extends React.Component{
 
         this.handleLoginClick = this.handleLoginClick.bind(this)
         this.handleLogoutClick = this.handleLogoutClick.bind(this)
-        this.state = {isLoggedIn: true}
+        this.state = {isLoggedIn: false}
 
     }
 
     handleLoginClick(){
-        this.setState({isLoggedIn: true})
+        this.setState({isLoggedIn: true}) //if click isLoggedIn set true
     }
 
     handleLogoutClick(){
@@ -17,19 +17,19 @@ class LoginControl extends React.Component{
     }
 
     render(){
-        const isLoggedIn = this.state.isLoggedIn
+        const isLoggedIn = this.state.isLoggedIn //1. false
         let button;
         
         if(isLoggedIn){
             button = <LogoutButton onClick={this.handleLogoutClick}/>
         }else{
-            button = <LoginButton onClick={this.handleLoginClick}/>
+            button = <LoginButton onClick={this.handleLoginClick}/>//2. button renders LoginButton and Go to method handleLoginClick 
 
         }
-
+    //4. isLoggedIn starts with false and go to greeting component 
         return(
             <div>
-                <Greeting isLoggedIn={isLoggedIn}/>
+                <Greeting isLoggedIn={isLoggedIn}/> 
                 {button}
             </div>
         )
@@ -46,11 +46,11 @@ function GuestGreeting(props){
 }
 
 function Greeting(props){
-    const isLoggedIn = props.isLoggedIn
+    const isLoggedIn = props.isLoggedIn //5. starts with false until I clicked the button 
     if(isLoggedIn){
-        return <UserGreeting />
+        return <UserGreeting /> 
     }
-    return <GuestGreeting />
+    return <GuestGreeting /> //6. Established UserGreeting
 }
 
 function LoginButton(props){
