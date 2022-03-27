@@ -72,3 +72,4 @@ function LogoutButton(props){
 ReactDOM.render(
     <LoginControl/>, document.getElementById('root')
 )
+
