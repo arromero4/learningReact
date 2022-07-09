@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        picture{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 100px;
+
+        }
+            
+        picture.is-small{
+            width: 50px;
+        }
+
+        picture.is-large{
+            width: 200px;
+        }
+
+
+        img {
+            box-shadow: 0 0 15px #999;
+            border-radius: 50%;
+            width: 100%;
+        }
+
+        img.disabled{
+            opacity: .3;
+        }
+
+        i{
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            min-height: 50px;
+            display: block;
+            width: 100%;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        div{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 24px;
+        }
+    </style>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <title>react</title>
+</head>
+<body>
+    <h1>Women in tech</h1>
+    <div id="app">
+
+    </div>
+
+
+    <script type="text/babel">
+        const $app = document.getElementById('app');
+        const useState = React.useState
+
+        const Avatar = ({id, name = 'WomenInTech', size}) => {
+            const [enabled, setEnabled] = useState(true)
+
+            
+            
+            const src =`https://randomuser.me/api/portraits/women/${id}.jpg`
+            
+            let pictureClassName = "";
+            if(size === "small"){
+                pictureClassName = "is-small"
+            }else if(size === "large"){
+                pictureClassName = "is-large"
+            }
+            
+            const imgClassName = enabled ? '' : 'disabled'
+
+            return (
+                <picture className={pictureClassName}>
+                    {
+                       id ? (<img onClick={()=>setEnabled(!enabled)} 
+                            className={imgClassName} 
+                            src={src} 
+                    />) : <i>"Sin imagen"</i>
+                    }
+                    <strong>{enabled ? name : "Desactivada"}</strong>
+                </picture>
+            )
+        }
+
+        function Contador(){
+
+            let [contadorValue,actualizarContador] = useState(50)
+
+            return (
+            <div>
+                <span>{contadorValue}</span>
+                <button onClick={() => {
+                    actualizarContador(contadorValue + 1)
+                }}>Incrementar</button>
+                <button onClick={() => {
+                    actualizarContador(contadorValue - 1)
+                }}>Decrementar</button>
+            </div>    
+            )
+
+        }
+
+        ReactDOM.render(
+            <div>
+                <Contador />
+            </div>,             
+            $app)
+        
+
+        // $app.querySelectorAll('img').forEach(img=>{
+        //     img.addEventListener('click',()=>{
+        //         img.classList.toggle('disabled')
+        //     })
+        // })
+    </script>
+</body>
+</html>
