@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/react-rascia/static/css/main.bb5d6b2a.css",
-    "main.js": "/react-rascia/static/js/main.2459afac.js",
-    "index.html": "/react-rascia/index.html",
-    "main.2459afac.js.map": "/react-rascia/static/js/main.2459afac.js.map"
+    "main.css": "/learningReact/react-rascia/static/css/main.bb5d6b2a.css",
+    "main.js": "/learningReact/react-rascia/static/js/main.2459afac.js",
+    "index.html": "/learningReact/react-rascia/index.html",
+    "main.2459afac.js.map": "/learningReact/react-rascia/static/js/main.2459afac.js.map"
   },
   "entrypoints": [
     "static/css/main.bb5d6b2a.css",
